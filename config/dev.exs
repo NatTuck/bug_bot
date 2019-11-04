@@ -2,8 +2,8 @@ use Mix.Config
 
 # Configure your database
 config :bug_bot, BugBot.Repo,
-  username: "postgres",
-  password: "postgres",
+  username: "bug_bot",
+  password: "nu5einoo4Aif",
   database: "bug_bot_dev",
   hostname: "localhost",
   show_sensitive_data_on_connection_error: true,
