@@ -1,3 +1,10 @@
 /* This file is for your main application css. */
 
 @import "~bootstrap/scss/bootstrap";
+
+$ionicons-font-path: "~ionicons/dist/fonts";
+@import "~ionicons/dist/scss/ionicons";
+
+.auth-link {
+    font-size: 20pt;
+}

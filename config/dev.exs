@@ -1,5 +1,11 @@
 use Mix.Config
 
+# Config for authentication
+config :bug_bot, BugBot.Auth,
+  client_id: System.get_env("GITHUB_CLIENT_ID"),
+  client_secret: System.get_env("GITHUB_CLIENT_SECRET"),
+  redirect_uri: System.get_env("GITHUB_REDIRECT_URI")
+
 # Configure your database
 config :bug_bot, BugBot.Repo,
   username: "bug_bot",

@@ -17,6 +17,13 @@ defmodule BugBotWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/welcome", PageController, :welcome
+    resources "/users", UserController
+
+    # Oauth2 Authentication
+    get "/auth", AuthController, :authenticate
+    delete "/auth", AuthController, :delete
+    get "/auth/callback", AuthController, :callback
   end
 
   # Other scopes may use custom stacks.
