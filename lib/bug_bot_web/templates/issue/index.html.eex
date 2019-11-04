@@ -1,0 +1,30 @@
+<h1>Listing Issues</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>State</th>
+      <th>Body</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for issue <- @issues do %>
+    <tr>
+      <td><%= link issue.title, to: issue.html_url %></td>
+      <td><%= issue.state %></td>
+      <td><%= issue.body %></td>
+
+      <td>
+        <span><%= link "Show", to: Routes.issue_path(@conn, :show, issue.number) %></span>
+        <span><%= link "Edit", to: Routes.issue_path(@conn, :edit, issue.number) %></span>
+        <span><%= link "Close", to: Routes.issue_path(@conn, :delete, issue.number), method: :delete, data: [confirm: "Are you sure?"] %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Issue", to: Routes.issue_path(@conn, :new) %></span>

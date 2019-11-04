@@ -19,6 +19,7 @@ defmodule BugBotWeb.Router do
     get "/", PageController, :index
     get "/welcome", PageController, :welcome
     resources "/users", UserController
+    resources "/issues", IssueController
 
     # Oauth2 Authentication
     get "/auth", AuthController, :authenticate

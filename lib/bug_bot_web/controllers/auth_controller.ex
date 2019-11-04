@@ -18,7 +18,9 @@ defmodule BugBotWeb.AuthController do
     client = Auth.get_token!(code: code)
     %{body: user} = OAuth2.Client.get!(client, "/user")
 
-    token = client.token.access_token
+    token = client.token
+    |> Map.drop([:__struct__, :__meta__])
+
     {:ok, user} = Jason.decode!(user)
     |> Map.put("token", token)
     |> BugBot.Users.create_user()
@@ -27,7 +29,6 @@ defmodule BugBotWeb.AuthController do
 
     conn
     |> put_session(:user_id, user.id)
-    |> put_session(:access_token, client.token.access_token)
     |> redirect(to: "/welcome")
   end
 end

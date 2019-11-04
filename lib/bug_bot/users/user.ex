@@ -7,7 +7,7 @@ defmodule BugBot.Users.User do
     field :html_url, :string
     field :login, :string
     field :name, :string
-    field :token, :string
+    field :token, :map
 
     timestamps()
   end

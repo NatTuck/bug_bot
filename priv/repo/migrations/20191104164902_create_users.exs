@@ -7,7 +7,7 @@ defmodule BugBot.Repo.Migrations.CreateUsers do
       add :name, :string, null: false
       add :avatar_url, :string
       add :html_url, :string
-      add :token, :string, null: false
+      add :token, :map, null: false
 
       timestamps()
     end
